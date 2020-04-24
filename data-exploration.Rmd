@@ -1,0 +1,43 @@
+---
+title: "Oystercatcher Data Exploration"
+author: "Rio Button"
+date: "20/04/2020"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##  Title:  The population of African Black Oystercatchers on Robben Island increased from 130 to 550 in two decades: how have the extra birds territories fitted in?   
+  
+From 130 to 550  African Black Oystercatchers in two decades; how have they fitted in on Robben Island?
+
+## Abstract
+When a population on an island, with finite habitat, increases from 130 to 550 in two decades, how do the extra birds “fit in”? The African Oystercatchers _Haematopus moquini_ population on Robben Island has grown four fold since population monitoring began 20 years ago. How have individual birds and nest distributions changed through time and what variables impact their density pattern, nest locations and breeding viability? Is there evidence of density dependence? Variables accessed include habitat distributions (obtained using machine learning from aerial photography and satellite imagery through time); exposure of the shore to the ocean; snake observation records; various seabird nesting areas; and distance from shore, nests, roads, and known areas of human disturbance. We can use this to predict desirable habitats for individuals and nest locations and extrapolate this to other islands and the mainland. With mounting anthropogenic pressures on mainland breeding, this relatively undisturbed system can be used to identify ideal habitat and thus motivate for its protection where possible on the mainland and on islands. 
+
+## Getting the datasetin order
+Dataset from Itxaso (in long format)
+
+
+```{r}
+library(here)
+renv::init()
+B20192020<-readr::read_csv(here("Data", "OystercatcherBreedingMonitoringData20192020.csv")) #Data from Itxaso "Oystercacher data complete"
+summary(B20192020)
+B20192020<-dplyr::select(Egg_Mass_g, Egg_Length_mm, Egg_Width1_mm, Egg_Width2_mm, everything())
+
+```
+
+##Get average GPS co ord for each nest.. exclude outliers
+*identify outlier 
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
